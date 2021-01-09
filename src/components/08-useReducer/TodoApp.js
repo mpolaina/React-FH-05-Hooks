@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from 'react'
 import { useForm } from '../../hooks/useForm'
 import { todoReducer } from './todoReducer'
-import logo from '../../logo.svg'
+import { TodoList } from './TodoList'
 
 // fn init retorna el initialstate
 const init = () => {
@@ -32,6 +32,14 @@ export const TodoApp = () => {
       dispatch( borrarTodo )
   }
   
+  const handleToggle = (todoId) => {
+      
+      dispatch({
+        type: 'toggle',
+        payload: todoId
+      })
+  }
+  
   const handleSubmit = ( e ) => {
       
       e.preventDefault();
@@ -53,7 +61,7 @@ export const TodoApp = () => {
     <div className="p-4">
       <h3 className="fw-bold d-flex justify-content-between align-items-center">
         <div>
-          <img src={ logo } alt="" className="logo"/>
+        <i className="fi fi-react text-info me-1"></i>
           Todo<i className="bi bi-check2-square"></i>App
         </div>
         {/* <span className="badge bg-info align-content-end">{ todos.length }</span> */}
@@ -63,27 +71,17 @@ export const TodoApp = () => {
       </h3>
       
       <div className="row">
+        
         <div className="col-md-7 my-3">
-            <ul className="list-group list-group-flush">
-              {
-                todos.map( (todo, i) => (
-                    <li
-                      key={ todo.id }
-                      className="list-group-item d-flex align-items-center justify-content-between"
-                    >
-                        { i + 1 }. { todo.desc } 
-                        <button 
-                          className="btn btn-outline-danger btn-sm ms-2"
-                          onClick={ () => handleDelete( todo.id ) }
-                        >
-                          <i className="bi bi-trash"></i>
-                        </button>
-                    </li>
-                ))
-                  
-              }
-          </ul>
+          
+            <TodoList 
+                todos={ todos }
+                handleDelete={ handleDelete }
+                handleToggle={ handleToggle }
+            />
+            
         </div>
+        
         <div className="col-md-5 mt-3">
           <h4>Agregar Todo</h4>
           

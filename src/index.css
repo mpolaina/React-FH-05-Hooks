@@ -6,3 +6,8 @@
 .complete {
   text-decoration: line-through;
 }
+
+p {
+  cursor: pointer;
+  margin-bottom: 0px;
+}
