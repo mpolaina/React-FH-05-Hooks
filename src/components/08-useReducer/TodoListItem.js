@@ -16,7 +16,7 @@ export const TodoListItem = ( {todo, index, handleToggle, handleDelete} ) => {
           className="btn btn-outline-danger ms-2"
           onClick={ () => handleDelete( todo.id ) }
         >
-          <i class="fi fi-trash"></i>
+          <i className="fi fi-trash"></i>
         </button>
     </li>
   )
