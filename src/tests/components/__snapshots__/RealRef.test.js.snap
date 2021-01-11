@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en RealRef Debe mostrarse correctamente 1`] = `
+<div
+  className="p-5"
+>
+  <h2
+    className="fw-bold"
+  >
+    <img
+      alt=""
+      className="logo"
+      src="logo.svg"
+    />
+    Real Example useRef
+  </h2>
+  <button
+    className="btn btn-primary mt-3"
+    onClick={[Function]}
+  >
+    Show/Hide
+  </button>
+</div>
+`;
